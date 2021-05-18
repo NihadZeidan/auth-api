@@ -1,11 +1,5 @@
 'use strict';
-
 require('dotenv').config();
-const SECRET = process.env.SECRET;
-// const bearerAuth = require('../auth-server/src/auth/middleware/bearer.js');
-// const basicAuth = require('../auth-server/src/auth/middleware/basic.js');
-
-// const permission = require('../auth-server/src/auth/middleware/acl.js');
 
 const server = require('../api-server/src/server.js').server;
 
