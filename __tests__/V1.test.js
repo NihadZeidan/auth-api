@@ -1,12 +1,10 @@
 'use strict';
 
 require('dotenv').config();
-const SECRET = process.env.SECRET;
 
 const server = require('../api-server/src/server.js').server;
 require('@code-fellows/supergoose');
-
-const supertest = require("supertest")
+const supertest = require("supertest");
 const fakeServer = supertest(server);
 
 
@@ -42,7 +40,7 @@ describe("V1 Routes", () => {
         let test2 = await fakeServer.get(`/api/v1/food/${id}`);
 
         expect(test2.body.type).toEqual("PROTIEN");
-        expect(test.status).toEqual(200);
+        expect(test2.status).toEqual(200);
     });
 
     it("PUT /api/v1/:model/ID returns a single, updated item by ID", async() => {
@@ -58,7 +56,7 @@ describe("V1 Routes", () => {
         let test2 = await fakeServer.put(`/api/v1/food/${id}`).send(updatedItem);
 
         expect(test2.body.calories).toEqual(20);
-        expect(test.status).toEqual(200);
+        expect(test2.status).toEqual(200);
     });
 
 

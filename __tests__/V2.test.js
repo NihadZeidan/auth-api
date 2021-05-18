@@ -1,7 +1,6 @@
 'use strict';
 
 require('dotenv').config();
-const SECRET = process.env.SECRET;
 
 const server = require('../api-server/src/server.js').server;
 require('@code-fellows/supergoose');
@@ -27,7 +26,7 @@ describe("V2", () => {
         let siginUp = await fakeServer.post('/signup').send(user);
         let siginIn = await fakeServer.post('/signin').auth(user.username, user.password);
 
-        let token = `Bearer ${siginIn.body.token}`
+        let token = ` Bearer ${siginIn.body.token}`;
 
 
         let test = await fakeServer.post('/api/v2/clothes').set(`Authorization`, token).send(clothes);

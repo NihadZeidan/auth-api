@@ -1,22 +1,20 @@
 # auth-api
 
+## Author: Nihad Zeidan
 
 
-### Author: Nihad Zeidan
+## tests report:
 
+[GitHub PR]()
 
-### tests report:
 
 [Heroku]()
-
-
-[GitHub PR](https://github.com/NihadZeidan/auth-api/pull/1)
 
 
 [GitHub Actions]()
 
 
-### .env requirements
+## .env requirements
 
 PORT - Port Number
 
@@ -25,11 +23,11 @@ DataBase_URI=mongodb://localhost:27017/auth
 SECRET="mysecret"
 
 
-### Running the app
+## Running the app
 `npm run start`
 
 
-### Endpoints: 
+## Endpoints: 
 
 post `/signin`
 
@@ -45,7 +43,7 @@ CRUD `/api/v1/model`
 CRUD `/api/v2/model` 
 
 
-### Returns Object
+## Returns Object
 
 
   user {
@@ -72,11 +70,11 @@ clothesModel {
 
 
 
-### Tests
+## Tests
 Unit Tests: `npm test`
 
 
 
-### UML
+## UML
 
 ![](./assets/api-auth.png)

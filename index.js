@@ -3,6 +3,8 @@
 require('dotenv').config();
 const APIserver = require('./api-server/src/server.js');
 
+const MONGODB_URI = process.env.MONGODB_URI || `mongodb://localhost:27017/auth-api`
+
 // Start up DB Server
 const mongoose = require('mongoose');
 const options = {
@@ -15,7 +17,7 @@ const options = {
 async function connect(next) {
     try {
 
-        await mongoose.connect(process.env.MONGODB_URI, options)
+        await mongoose.connect(MONGODB_URI, options)
         console.log("MONGODB COnnected");
         await APIserver.start(process.env.PORT);
     } catch (e) {
