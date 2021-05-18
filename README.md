@@ -5,13 +5,13 @@
 
 ## tests report:
 
-[GitHub PR]()
+[GitHub PR](https://github.com/NihadZeidan/auth-api/pull/8)
 
 
-[Heroku]()
+[Heroku](https://nihad-auth-api.herokuapp.com/)
 
 
-[GitHub Actions]()
+[GitHub Actions](https://github.com/NihadZeidan/auth-api/actions)
 
 
 ## .env requirements
