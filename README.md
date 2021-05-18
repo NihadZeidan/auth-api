@@ -10,7 +10,7 @@
 [Heroku]()
 
 
-[GitHub PR](https://github.com/NihadZeidan/auth-api/pull/1)
+[GitHub PR]()
 
 
 [GitHub Actions]()

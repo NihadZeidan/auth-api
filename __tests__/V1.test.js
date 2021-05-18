@@ -4,8 +4,7 @@ require('dotenv').config();
 
 const server = require('../api-server/src/server.js').server;
 require('@code-fellows/supergoose');
-
-const supertest = require("supertest")
+const supertest = require("supertest");
 const fakeServer = supertest(server);
 
 

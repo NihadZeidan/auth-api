@@ -12,20 +12,16 @@ const options = {
 };
 
 
-// async function connect(next) {
-// try {
+async function connect(next) {
+    try {
 
-mongoose.connect(process.env.MONGODB_URI, options).then(() => {
-    console.log("MONGODB COnnected");
-    APIserver.start(process.env.PORT);
+        await mongoose.connect(process.env.MONGODB_URI, options)
+        console.log("MONGODB COnnected");
+        await APIserver.start(process.env.PORT);
+    } catch (e) {
+        console.error(e);
+        next("CAN NOT CONNECT TO THE DB AND SERVER !")
+    }
+}
 
-});
-
-
-// } catch (e) {
-// console.error(e);
-// next("CAN NOT CONNECT TO THE DB AND SERVER !")
-// }
-// }
-
-// connect();
+connect();
