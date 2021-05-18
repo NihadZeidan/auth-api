@@ -1,10 +1,16 @@
 'use strict';
 
+const express = require("express");
 const fs = require('fs');
-const express = require('express');
+const router = express.Router();
+
+const basicAuth = require('../../../auth-server/src/auth/middleware/basic.js');
+const bearerAuth = require('../../../auth-server/src/auth/middleware/bearer.js');
+const ACL = require('../../../auth-server/src/auth/middleware/acl.js');
+
+
 const Collection = require('../models/data-collection.js');
 
-const router = express.Router();
 
 const models = new Map();
 
@@ -26,11 +32,12 @@ router.param('model', (req, res, next) => {
     }
 });
 
-router.get('/:model', handleGetAll);
-router.get('/:model/:id', handleGetOne);
-router.post('/:model', handleCreate);
-router.put('/:model/:id', handleUpdate);
-router.delete('/:model/:id', handleDelete);
+router.get('/:model', bearerAuth, handleGetAll);
+router.get('/:model/:id', bearerAuth, handleGetOne);
+router.post('/:model', bearerAuth, ACL("create"), handleCreate);
+router.put('/:model/:id', bearerAuth, ACL("update"), handleUpdate);
+router.delete('/:model/:id', bearerAuth, ACL("delete"), handleDelete);
+
 
 async function handleGetAll(req, res) {
     let allRecords = await req.model.get();
